@@ -1,1 +1,1 @@
-qemu-system-x86_64 -drive file=bootloader.img,format=raw
+qemu-system-x86_64 -drive file=Bin\bootloader.img,format=raw
