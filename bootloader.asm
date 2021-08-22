@@ -11,11 +11,7 @@ mov bx, WelcomeString
 call PrintString
 
 call ReadDisk
-mov bx, PROGRAM_SPACE
-call PrintString
-
-
-jmp $
+jmp PROGRAM_SPACE
 
 %include 'Core\string.asm'
 %include 'Core\data.asm'
