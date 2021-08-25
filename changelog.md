@@ -6,6 +6,7 @@
 
 - This changelog :>
 - Disk reading
+- x64 mode
 
 ### Changed
 
