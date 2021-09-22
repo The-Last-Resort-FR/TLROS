@@ -1,5 +1,3 @@
-[org 0x7e00]
-
 jmp EnterProtectedMode
 
 %include 'Extended\gdt.asm'
@@ -45,11 +43,25 @@ StartProtectedMode:
     jmp codeseg:Start64bits
 
 [bits 64]
+[extern _start]
+
 Start64bits:
     mov edi, 0xb8000
     mov rax, 0x1f201f201f201f20
     mov ecx, 500
     rep stosq
+    call _start
     jmp $
 
+ntm:
+    push rbp
+    mov rbp, rsp
+    sub rsp, 0x10
+    mov qword [rbp - 8], 0xb8000
+    mov rax, qword [rbp - 8]
+    mov dword [rax], 0x50505050
+    ;mov rsp, rbp
+    ;pop rbp
+    leave
+    ret
 times 2048-($-$$) db 0

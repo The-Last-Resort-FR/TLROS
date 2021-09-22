@@ -3,7 +3,7 @@ PROGRAM_SPACE equ 0x7e00
 ReadDisk:
     mov ah, 0x02
     mov bx, PROGRAM_SPACE
-    mov al, 4               ; Number of sector to read (512 bytes each)
+    mov al, 16               ; Number of sector to read (512 bytes each)
     mov dl, [BOOT_DISK]
     mov ch, 0x00            ; Cylinder 0
     mov dh, 0x00            ; Head 0
